@@ -10,9 +10,9 @@ public class HTTPServer {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
-        int port =getPort();
+        int port = getPort();
         try {
-            
+
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
             System.err.println("Could not listen on port: " + port);
@@ -41,9 +41,55 @@ public class HTTPServer {
                     }
                 }
                 EncoderFile encod = new EncoderFile();
-                System.out.println("recursos " + recursos + " "+recursos.length);
-                if (recursos[1].contains(".JPG")) {
-                    String img = encod.EncodeImage2("resources/" + recursos[1].substring(1));
+                if (recursos.length > 0) {
+                    if (recursos[1].contains(".JPG")) {
+                        String img = encod.EncodeImage2("resources/" + recursos[1].substring(1));
+                        outputLine = "HTTP/1.1 200 OK\r\n"
+                                + "Content-Type: text/html\r\n"
+                                + "\r\n"
+                                + "<!DOCTYPE html>"
+                                + "<html>"
+                                + "<head>"
+                                + "<meta charset=\"UTF-8\">"
+                                + "<title>Title of the document</title>\n" + "</head>"
+                                + "<body>"
+                                + "My Web Site" + recursos[1]
+                                + "<img src=" + "data:image/jpg;base64," + img + ">"
+                                + "</body>"
+                                + "</html>";
+
+                        out.println(outputLine);
+                        out.close();
+                        in.close();
+
+                    } else if (recursos[1].contains(".html")) {
+                        String file = encod.EncodeHtml("resources/" + recursos[1].substring(1));
+                        outputLine = "HTTP/1.1 200 OK\r\n"
+                                + "Content-Type: text/html" + "\r\n"
+                                + "\r\n"
+                                + file;
+                        out.println(outputLine);
+                        out.close();
+                        in.close();
+                    } else {
+                        outputLine = "HTTP/1.1 200 OK\r\n"
+                                + "Content-Type: text/html\r\n"
+                                + "\r\n"
+                                + "<!DOCTYPE html>"
+                                + "<html>"
+                                + "<head>"
+                                + "<meta charset=\"UTF-8\">"
+                                + "<title>Title of the document</title>\n" + "</head>"
+                                + "<body>"
+                                + "My Web Site" + recursos[1]
+                                + "</body>"
+                                + "</html>";
+
+                        out.println(outputLine);
+                        out.close();
+                        in.close();
+                    }
+                } else {
                     outputLine = "HTTP/1.1 200 OK\r\n"
                             + "Content-Type: text/html\r\n"
                             + "\r\n"
@@ -54,7 +100,6 @@ public class HTTPServer {
                             + "<title>Title of the document</title>\n" + "</head>"
                             + "<body>"
                             + "My Web Site" + recursos[1]
-                            + "<img src=" + "data:image/jpg;base64," + img + ">"
                             + "</body>"
                             + "</html>";
 
@@ -62,51 +107,23 @@ public class HTTPServer {
                     out.close();
                     in.close();
 
-                } else if (recursos[1].contains(".html")) {
-                    String file = encod.EncodeHtml("resources/" + recursos[1].substring(1));
-                    outputLine = "HTTP/1.1 200 OK\r\n"
-                            + "Content-Type: text/html" + "\r\n"
-                            + "\r\n"
-                            + file;
-                    out.println(outputLine);
-                    out.close();
-                    in.close();
-                }else {
-                    outputLine = "HTTP/1.1 200 OK\r\n"
-                            + "Content-Type: text/html\r\n"
-                            + "\r\n"
-                            + "<!DOCTYPE html>"
-                            + "<html>"                         
-                            + "<head>"
-                            + "<meta charset=\"UTF-8\">"
-                            + "<title>Title of the document</title>\n" + "</head>"
-                            + "<body>"                           
-                            + "My Web Site" + recursos[1]
-                            + "</body>"
-                            + "</html>";
-
-                    out.println(outputLine);
-                    out.close();
-                    in.close();
                 }
 
             }
+
         } catch (IOException e) {
             System.err.println("Accept failed.");
-            
+
         }
         clientSocket.close();
         serverSocket.close();
     }
-    
+
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 35000; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
-     
+
 }
-    
-
-
