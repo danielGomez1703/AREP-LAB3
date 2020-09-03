@@ -93,7 +93,7 @@ public class HTTPServer {
             }
         } catch (IOException e) {
             System.err.println("Accept failed.");
-            System.exit(1);
+            
         }
         clientSocket.close();
         serverSocket.close();
