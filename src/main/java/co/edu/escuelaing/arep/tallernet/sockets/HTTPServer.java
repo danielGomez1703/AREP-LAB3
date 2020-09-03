@@ -20,7 +20,6 @@ public class HTTPServer {
         }
         Socket clientSocket = null;
         try {
-
             while (true) {
                 System.out.println("Listo para recibir...");
                 clientSocket = serverSocket.accept();
@@ -42,6 +41,7 @@ public class HTTPServer {
                     }
                 }
                 EncoderFile encod = new EncoderFile();
+                System.out.println("recursos " + recursos + " "+recursos.length);
                 if (recursos[1].contains(".JPG")) {
                     String img = encod.EncodeImage2("resources/" + recursos[1].substring(1));
                     outputLine = "HTTP/1.1 200 OK\r\n"
