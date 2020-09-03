@@ -99,7 +99,7 @@ public class HTTPServer {
                             + "<meta charset=\"UTF-8\">"
                             + "<title>Title of the document</title>\n" + "</head>"
                             + "<body>"
-                            + "My Web Site" + recursos[1]
+                            + "My Web Site"
                             + "</body>"
                             + "</html>";
 
