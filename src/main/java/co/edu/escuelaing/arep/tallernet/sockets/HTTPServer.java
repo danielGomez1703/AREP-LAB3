@@ -1,4 +1,4 @@
-package co.edu.escuelaing.arsw.tallernet.sockets;
+package co.edu.escuelaing.arep.tallernet.sockets;
 
 import java.net.*;
 import java.io.*;

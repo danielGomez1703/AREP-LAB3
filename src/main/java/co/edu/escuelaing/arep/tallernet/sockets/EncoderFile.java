@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.escuelaing.arsw.tallernet.sockets;
+package co.edu.escuelaing.arep.tallernet.sockets;
 
 import java.io.BufferedReader;
 import java.io.File;

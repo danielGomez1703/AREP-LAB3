@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.escuelaing.arsw.tallernet;
+package co.edu.escuelaing.arep.tallernet;
 
 import java.net.MalformedURLException;
 import java.net.URL;
