@@ -18,7 +18,6 @@ public class HTTPServer {
 
         Socket clientSocket = null;
         try {
-
             while (true) {
                 System.out.println("Listo para recibir...");
                 clientSocket = serverSocket.accept();
