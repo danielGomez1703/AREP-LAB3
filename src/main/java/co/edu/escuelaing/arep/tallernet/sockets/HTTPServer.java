@@ -7,17 +7,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class HTTPServer {
-    
-    private ServerSocket  serverSocket;
-    
-    public HTTPServer (ServerSocket serverSocket) {
-        this.serverSocket = serverSocket;
-    }
 
-    public void start() throws IOException {
-
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = null;
+       int port = getPort();
+        try {
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            System.err.println("Could not listen on port: 35000.");
+            System.exit(1);
+        }
         Socket clientSocket = null;
         try {
+
             while (true) {
                 System.out.println("Listo para recibir...");
                 clientSocket = serverSocket.accept();
@@ -95,7 +97,15 @@ public class HTTPServer {
         clientSocket.close();
         serverSocket.close();
     }
+     
 
-  
-
+  public static int getPort() {
+        if (System.getenv("PORT") != null) {
+            return Integer.parseInt(System.getenv("PORT"));
+        }
+        return 35000; //returns default port if heroku-port isn't set(i.e. on localhost)
+    }
 }
+    
+
+
