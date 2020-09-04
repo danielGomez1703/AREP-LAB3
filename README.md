@@ -28,8 +28,10 @@ $ mvn package
 	localhost:35000
 	
   para los datos de Mongo 
+  
 	localhost:35000/datos
-
+	
+	https://arepserver.herokuapp.com/datos
    vera estos datos.
  ![datos](https://github.com/danielGomez1703/AREP-LAB3/blob/master/resources/datos.JPG) 
 	
