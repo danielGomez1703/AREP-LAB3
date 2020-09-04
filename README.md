@@ -56,6 +56,9 @@ $ mvn package
 el objetivo del programa es abrir sockets para la comunicacion, esto se hace mediante un servidor y uno o mas clientes
 para el caso del servidor web es el unico caso que alno ser concurrente puede atender mas de un cliente en diferentes momentos.
 
+## Documento de desarrollo
+
+para ir al documento  puede [hacer click aqui](https://github.com/danielGomez1703/AREP-LAB3/blob/master/resources/ServerClient.pdf)
 
 ## Author
     Daniel Felipe Gomez Suarez
