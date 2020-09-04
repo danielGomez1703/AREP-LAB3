@@ -1,4 +1,9 @@
 # LAB 3 AREP
+
+Despliegue continuo 
+
+[![CircleCI](https://circleci.com/gh/danielGomez1703/AREP-LAB3.svg?style=svg)](https://circleci.com/gh/danielGomez1703/AREP-LAB3)
+
 este programa es una muestra de los diferentes sockets de java. como ejemplo podra encontrar sokets de tipo
 
  - HTTPServer
