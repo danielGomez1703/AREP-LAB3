@@ -1,5 +1,6 @@
 package co.edu.escuelaing.arep.tallernet.sockets;
 
+import co.edu.escuelaing.arep.tallernet.connection.MongoDataBase;
 import java.net.*;
 import java.io.*;
 import java.util.Base64;
@@ -9,7 +10,9 @@ import java.util.logging.Logger;
 public class HTTPServer {
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = null;
+        
+        MongoDataBase dataBase = new MongoDataBase();
+        ServerSocket serverSocket = null;   
         int port = getPort();
         try {
 
@@ -68,6 +71,25 @@ public class HTTPServer {
                                 + "Content-Type: text/html" + "\r\n"
                                 + "\r\n"
                                 + file;
+                        out.println(outputLine);
+                        out.close();
+                        in.close();
+                    } else if (recursos[1].contains("datos")) {
+                        String data = dataBase.datos();
+                        outputLine=
+                                "HTTP/1.1 200 OK\r\n"
+                                + "Content-Type: text/html\r\n"
+                                + "\r\n"
+                                + "<!DOCTYPE html>"
+                                + "<html>"
+                                + "<head>"
+                                + "<meta charset=\"UTF-8\">"
+                                + "<title>Title of the document</title>\n" + "</head>"
+                                + "<body>"
+                                + "Datos Base de datos Mongoe "
+                                +"<p>"+ data + "</p>"
+                                + "</body>"
+                                + "</html>";
                         out.println(outputLine);
                         out.close();
                         in.close();

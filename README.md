@@ -20,15 +20,24 @@ $ mvn package
 # MANUAL
   una vez instalado el programa debe ejecutar el programa de acuerdo al servidor que desee probar primero sera el servidor y luego el cliente
  
-    servidor web    java -cp target/TallerNet-1.0-SNAPSHOT.jar  co/edu/escuelaing/arsw/tallernet/sockets/HTTPServer
+    servidor web    java -cp target/TallerNet-1.0-SNAPSHOT.jar  co/edu/escuelaing/arep/tallernet/sockets/HTTPServer
  
   posteriormente se hara la prueba con el cliente.
 
 	localhost:35000/prueba2.html
 	localhost:35000
-  
+	
+  para los datos de Mongo 
+	localhost:35000/datos
 
-    
+   vera estos datos.
+ ![datos](https://github.com/danielGomez1703/AREP-LAB3/blob/master/resources/datos.JPG) 
+	
+  para correrlo en la nube. 
+		https://arepserver.herokuapp.com/
+		https://arepserver.herokuapp.com/prueba2.html
+		https://arepserver.herokuapp.com/pMath.JPG
+	
 ## Modelo
 ![Modelo](https://github.com/danielGomez1703/AREP-LAB3/blob/master/resources/Umodel.JPG)
 
