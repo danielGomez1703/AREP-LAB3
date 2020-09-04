@@ -7,8 +7,12 @@ Despliegue continuo
 Despliegue heroku 
 
 [link datos mongo](https://arepserver.herokuapp.com/datos)
+
 [link prueba html](https://arepserver.herokuapp.com/prueba2.html)
+
 [link prueba imagen] (https://arepserver.herokuapp.com/pMath.JPG)
+
+
 este programa es una muestra de los diferentes sockets de java. como ejemplo podra encontrar sokets de tipo
 
  - HTTPServer
